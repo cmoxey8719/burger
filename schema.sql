@@ -1,10 +1,10 @@
-### Schema
-CREATE DATABASE quotes_db;
-USE quotes_db;
+USE `x8lnytyzk8sgzn09`;
 
-CREATE TABLE quotes
-(
-	id int NOT NULL AUTO_INCREMENT,
+CREATE TABLE burgers (
+	id INT AUTO_INCREMENT NOT NULL,
 	burger varchar(255) NOT NULL,
+    devour BOOLEAN DEFAULT false,
+    createAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, 
 	PRIMARY KEY (id)
 );
+

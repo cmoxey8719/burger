@@ -1,20 +1,84 @@
 
-
-<h1>Eat-da-Burger</h1>
-
-
-{{burgers}}
-
-<form class="create-form" action="/" method="POST">
-  <div class="form-group">
-    <label for="quo">Quote:</label>
-    <textarea id="quo" name="quote" rows="8" cols="40"></textarea>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <img src="/assets/bobburger.jpg" class="img-fluid" alt="Responsive image" width="100% \9">
+      <br>
+    </div>
   </div>
+</div>
 
-  <button type="submit">Submit</button>
-</form>
+<div class="container">
+  <div class="row">
+    <div class="col col-lg-6">
+      <ul>
+        {{#each burgers}}
+          {{#unless this.devour}}
+            <div class="row">
+              <div class="col">
+              {{this.id}}. {{this.burger}}
+              </div>
+              <div class="col">
+                <form action="/{{this.id}}?_method=PUT" method="POST">
+                  <input type="hidden" name="devour" value="true">
+                  <button class="btn btn-danger devour" type="submit">Devour</button>
+                </form>
+              </div>
+            </div>
+          {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
 
-<h3>Enter a burger you want to eat</h3>
-<h3>Click the "submit" button</h3>
+    <div class="col col-lg-6">
+      <ul>
+        {{#each burgers}}
+          {{#if this.devour}}
+            <li>
+              {{this.id}}. {{this.burger}}
+            </li>
+          {{/if}}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col">
+      <form class="create-form" action="/" method="POST">
+        <div class="form-group">
+          <label for="quo">I want to eat:</label>
+          <input id="quo" class="form-control" name="burger"></input>
+        </div>
+        <button class="btn btn-danger btn-block" type="submit">Submit</button>
+      </form>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h6>Enter a burger you want to eat</h6>
+      <h6>Click the "submit" button</h6>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col">
+      <img src="/assets/burger.jpg" class="img-fluid" alt="Responsive image">
+   </div>
+    <div class="col"></div>
+  </div>
+</div>
+
 
 
